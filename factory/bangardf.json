@@ -1,0 +1,9 @@
+{
+	"name": "bangardf",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "510466a1-90af-4723-a54c-172da716a739",
+		"tenantId": "d4963ce2-af94-4122-95a9-644e8b01624d"
+	}
+}
