@@ -1,0 +1,9 @@
+{
+	"name": "covid-reporting-bangara-df",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2443c1f9-2340-4864-a602-ab3cb87662b2",
+		"tenantId": "7f6534e8-754a-40b9-b271-8d779ec6c526"
+	}
+}
