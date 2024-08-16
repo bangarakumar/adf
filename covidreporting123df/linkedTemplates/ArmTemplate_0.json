@@ -452,8 +452,7 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 5,
-						"startTime": "2024-08-16T16:47:00",
-						"endTime": "2024-08-17T16:47:00",
+						"startTime": "2024-08-16T16:52:00",
 						"timeZone": "India Standard Time"
 					}
 				}
