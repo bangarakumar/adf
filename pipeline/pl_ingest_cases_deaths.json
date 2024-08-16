@@ -48,18 +48,48 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_cases_deaths_raw_http",
-						"type": "DatasetReference"
+						"referenceName": "ds_ecdc_raw_http",
+						"type": "DatasetReference",
+						"parameters": {
+							"relativeURL": {
+								"value": "@pipeline().parameters.relativeSourceUrl",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_cases_deaths_raw_csv_dl",
-						"type": "DatasetReference"
+						"referenceName": "ds_ecdc_raw_csv_dl",
+						"type": "DatasetReference",
+						"parameters": {
+							"fileName": {
+								"value": "@pipeline().parameters.sorceFileName",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"relativeSourceUrl": {
+				"type": "String"
+			},
+			"sorceFileName": {
+				"type": "String"
+			}
+		},
+		"variables": {
+			"sourceRelativeUrl": {
+				"type": "String",
+				"defaultValue": "bangarakumar/covid19/blob/main/ecdc_data/hospital_admissions.csv"
+			},
+			"sourceFileName": {
+				"type": "String",
+				"defaultValue": "hospital_admissions.csv"
+			}
+		},
 		"annotations": []
 	}
 }
