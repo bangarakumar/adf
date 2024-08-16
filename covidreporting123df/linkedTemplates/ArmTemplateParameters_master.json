@@ -18,7 +18,7 @@
 			"value": "https://covidreporting123desa.dfs.core.windows.net/"
 		},
 		"ls_http_etdc_properties_typeProperties_url": {
-			"value": "https://github.com"
+			"value": "@{linkedService().sourceBaseUrl}"
 		},
 		"ls_http_etdc_properties_typeProperties_userName": {
 			"value": "bangarakumar"

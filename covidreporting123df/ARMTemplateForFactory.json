@@ -25,7 +25,7 @@
 		},
 		"ls_http_etdc_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com"
+			"defaultValue": "@{linkedService().sourceBaseUrl}"
 		},
 		"ls_http_etdc_properties_typeProperties_userName": {
 			"type": "string",
@@ -102,6 +102,10 @@
 									"relativeURL": {
 										"value": "@pipeline().parameters.relativeSourceUrl",
 										"type": "Expression"
+									},
+									"sourceBaseUrl": {
+										"value": "@pipeline().parameters.sourceBaseUrl",
+										"type": "Expression"
 									}
 								}
 							}
@@ -129,6 +133,9 @@
 					},
 					"sorceFileName": {
 						"type": "String"
+					},
+					"sourceBaseUrl": {
+						"type": "string"
 					}
 				},
 				"variables": {
@@ -140,13 +147,7 @@
 						"type": "String",
 						"defaultValue": "hospital_admissions.csv"
 					},
-					"sourceRelativeURL": {
-						"type": "String"
-					},
-					"sourcefileName": {
-						"type": "String"
-					},
-					"soureFileName": {
+					"sourceBaseUrl": {
 						"type": "String"
 					}
 				},
@@ -155,6 +156,40 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_ecdc_raw_http')]",
 				"[concat(variables('factoryId'), '/datasets/ds_ecdc_raw_csv_dl')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_ecdc_file_list')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_covidreporintg_ablob_sa",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "ecdc_file_list.json",
+						"container": "config"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"sourceRelativeURL": {
+							"type": "string"
+						},
+						"sinkFileName": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_covidreporintg_ablob_sa')]"
 			]
 		},
 		{
@@ -201,11 +236,20 @@
 			"properties": {
 				"linkedServiceName": {
 					"referenceName": "ls_http_etdc",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"sourceBaseUrl": {
+							"value": "@dataset().sourceBaseUrl",
+							"type": "Expression"
+						}
+					}
 				},
 				"parameters": {
 					"relativeURL": {
 						"type": "string"
+					},
+					"sourceBaseUrl": {
+						"type": "String"
 					}
 				},
 				"annotations": [],
@@ -331,6 +375,11 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"sourceBaseUrl": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {
@@ -378,40 +427,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pl_ingest_cases_deaths')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_ecdc_file_list')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_covidreporintg_ablob_sa",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "ecdc_file_list.json",
-						"container": "config"
-					}
-				},
-				"schema": {
-					"type": "object",
-					"properties": {
-						"sourceRelativeURL": {
-							"type": "string"
-						},
-						"sinkFileName": {
-							"type": "string"
-						}
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_covidreporintg_ablob_sa')]"
 			]
 		}
 	]
