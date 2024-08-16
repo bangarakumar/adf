@@ -5,10 +5,6 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "test",
-						"type": "DatasetReference"
-					},
 					"name": "source1"
 				}
 			],
@@ -36,8 +32,7 @@
 				"          Revenue as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     validateSchema: false) ~> source1",
 				"source1 select(mapColumn(",
 				"          city = Location,",
 				"          Brand = Brand_Name,",
