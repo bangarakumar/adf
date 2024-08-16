@@ -54,6 +54,10 @@
 							"relativeURL": {
 								"value": "@pipeline().parameters.relativeSourceUrl",
 								"type": "Expression"
+							},
+							"sourceBaseUrl": {
+								"value": "@pipeline().parameters.sourceBaseUrl",
+								"type": "Expression"
 							}
 						}
 					}
@@ -78,6 +82,9 @@
 			},
 			"sorceFileName": {
 				"type": "String"
+			},
+			"sourceBaseUrl": {
+				"type": "string"
 			}
 		},
 		"variables": {
@@ -88,6 +95,9 @@
 			"sourceFileName": {
 				"type": "String",
 				"defaultValue": "hospital_admissions.csv"
+			},
+			"sourceBaseUrl": {
+				"type": "String"
 			}
 		},
 		"annotations": []

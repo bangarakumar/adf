@@ -3,11 +3,20 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_http_etdc",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"sourceBaseUrl": {
+					"value": "@dataset().sourceBaseUrl",
+					"type": "Expression"
+				}
+			}
 		},
 		"parameters": {
 			"relativeURL": {
 				"type": "string"
+			},
+			"sourceBaseUrl": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
