@@ -8,10 +8,6 @@
 				"pipelineReference": {
 					"referenceName": "pl_ingest_cases_deaths",
 					"type": "PipelineReference"
-				},
-				"parameters": {
-					"relativeSourceUrl": "bangarakumar/covid19/blob/main/ecdc_data/hospital_admissions.csv",
-					"sorceFileName": "hospital_admissions.csv"
 				}
 			}
 		],
@@ -19,9 +15,9 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 15,
-				"startTime": "2024-08-16T08:13:00",
-				"endTime": "2024-08-17T08:15:00",
+				"interval": 5,
+				"startTime": "2024-08-16T16:47:00",
+				"endTime": "2024-08-17T16:47:00",
 				"timeZone": "India Standard Time"
 			}
 		}
