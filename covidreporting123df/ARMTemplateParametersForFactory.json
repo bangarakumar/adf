@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covidreporting123df"
+		},
+		"ls_covidreporing_dl_sa_accountKey": {
+			"value": ""
+		},
+		"ls_covidreporintg_ablob_sa_connectionString": {
+			"value": ""
+		},
+		"ls_http_etdc_password": {
+			"value": ""
+		},
+		"ls_covidreporing_dl_sa_properties_typeProperties_url": {
+			"value": "https://covidreporting123desa.dfs.core.windows.net/"
+		},
+		"ls_http_etdc_properties_typeProperties_url": {
+			"value": "https://github.com"
+		},
+		"ls_http_etdc_properties_typeProperties_userName": {
+			"value": "bangarakumar"
+		},
+		"tr_ingest_ecdc_data_properties_pl_ingest_cases_deaths_parameters_relativeSourceUrl": {
+			"value": "bangarakumar/covid19/blob/main/ecdc_data/hospital_admissions.csv"
+		},
+		"tr_ingest_ecdc_data_properties_pl_ingest_cases_deaths_parameters_sorceFileName": {
+			"value": "hospital_admissions.csv"
+		}
+	}
+}
