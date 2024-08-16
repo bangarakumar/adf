@@ -5,19 +5,11 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "DelimitedText3",
-						"type": "DatasetReference"
-					},
 					"name": "source1"
 				}
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "DelimitedText4",
-						"type": "DatasetReference"
-					},
 					"name": "sink1"
 				}
 			],
@@ -39,8 +31,7 @@
 				"          url as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     validateSchema: false) ~> source1",
 				"source1 select(mapColumn(",
 				"          circuit_id = circuitId,",
 				"          circuitRef,",
@@ -56,17 +47,6 @@
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          {1} as string,",
-				"          albert_park as string,",
-				"          {Albert Park Grand Prix Circuit} as string,",
-				"          Melbourne as string,",
-				"          Australia as string,",
-				"          {-37.8497} as string,",
-				"          {144.968} as string,",
-				"          {10} as string,",
-				"          {http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit} as string",
-				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
