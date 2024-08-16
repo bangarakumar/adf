@@ -362,6 +362,15 @@
 					"sourceFileName": {
 						"type": "String",
 						"defaultValue": "hospital_admissions.csv"
+					},
+					"sourceRelativeURL": {
+						"type": "String"
+					},
+					"sourcefileName": {
+						"type": "String"
+					},
+					"soureFileName": {
+						"type": "String"
 					}
 				},
 				"annotations": []
