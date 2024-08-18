@@ -515,7 +515,6 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "cases_deaths.csv",
 						"folderPath": "ecdc",
 						"fileSystem": "raw"
 					},
@@ -766,12 +765,14 @@
 						"     skipDuplicateMapOutputs: true) ~> selectforsink",
 						"selectforsink sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
+						"     partitionFileNames:['cases_and_deaths.csv'],",
 						"     truncate: true,",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> casesanddeathssink"
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> casesanddeathssink"
 					]
 				}
 			},
