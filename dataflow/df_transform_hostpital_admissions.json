@@ -57,6 +57,9 @@
 				},
 				{
 					"name": "sortweekly"
+				},
+				{
+					"name": "sortdaily"
 				}
 			],
 			"scriptLines": [
@@ -159,7 +162,9 @@
 				"     columnNaming: '$V_$N',",
 				"     lateral: true) ~> pivotdaily",
 				"pivot1 sort(desc(reported_year_week, true),",
-				"     asc(country, true)) ~> sortweekly"
+				"     asc(country, true)) ~> sortweekly",
+				"pivotdaily sort(desc(reported_date, true),",
+				"     asc(country, true)) ~> sortdaily"
 			]
 		}
 	}
