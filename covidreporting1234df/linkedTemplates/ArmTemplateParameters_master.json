@@ -14,6 +14,9 @@
 		"ls_http_etdc_password": {
 			"value": ""
 		},
+		"ls_databrics_server_accessToken": {
+			"value": ""
+		},
 		"ls_covidreporing_dl_sa_properties_typeProperties_url": {
 			"value": "https://covidreporting123dlsa.dfs.core.windows.net/"
 		},
