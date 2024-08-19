@@ -1,0 +1,23 @@
+{
+	"name": "ds_processed_hospital_admissons_daily",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_covidreporing_dl_sa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "ecdc/hospital_admissions_daily",
+				"fileSystem": "processed"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
