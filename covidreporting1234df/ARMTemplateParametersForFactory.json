@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "covidreporting1234df"
+		},
+		"ls_covidreporing_dl_sa_accountKey": {
+			"value": ""
+		},
+		"ls_covidreporintg_ablob_sa_connectionString": {
+			"value": ""
+		},
+		"ls_http_etdc_password": {
+			"value": ""
+		},
+		"ls_covidreporing_dl_sa_properties_typeProperties_url": {
+			"value": "https://covidreporting123dlsa.dfs.core.windows.net/"
+		},
+		"ls_http_etdc_properties_typeProperties_url": {
+			"value": "@{linkedService().sourceBaseUrl}"
+		},
+		"ls_http_etdc_properties_typeProperties_userName": {
+			"value": "bangarakumar"
+		}
+	}
+}
