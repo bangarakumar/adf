@@ -15,13 +15,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_covidreporintg_ablob_sa'"
 		},
+		"ls_databrics_server_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_databrics_server'"
+		},
 		"ls_http_etdc_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_http_etdc'"
 		},
-		"ls_databrics_server_accessToken": {
+		"ls_sql_covid_db_password": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'ls_databrics_server'"
+			"metadata": "Secure string for 'password' of 'ls_sql_covid_db'"
 		},
 		"ls_covidreporing_dl_sa_properties_typeProperties_url": {
 			"type": "string",
@@ -34,6 +38,18 @@
 		"ls_http_etdc_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "bangarakumar"
+		},
+		"ls_sql_covid_db_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "covid-srv1234.database.windows.net"
+		},
+		"ls_sql_covid_db_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "covid-db"
+		},
+		"ls_sql_covid_db_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "admin1234"
 		},
 		"containerUri": {
 			"type": "string",
@@ -68,11 +84,14 @@
 					"ls_covidreporintg_ablob_sa_connectionString": {
 						"value": "[parameters('ls_covidreporintg_ablob_sa_connectionString')]"
 					},
+					"ls_databrics_server_accessToken": {
+						"value": "[parameters('ls_databrics_server_accessToken')]"
+					},
 					"ls_http_etdc_password": {
 						"value": "[parameters('ls_http_etdc_password')]"
 					},
-					"ls_databrics_server_accessToken": {
-						"value": "[parameters('ls_databrics_server_accessToken')]"
+					"ls_sql_covid_db_password": {
+						"value": "[parameters('ls_sql_covid_db_password')]"
 					},
 					"ls_covidreporing_dl_sa_properties_typeProperties_url": {
 						"value": "[parameters('ls_covidreporing_dl_sa_properties_typeProperties_url')]"
@@ -82,6 +101,15 @@
 					},
 					"ls_http_etdc_properties_typeProperties_userName": {
 						"value": "[parameters('ls_http_etdc_properties_typeProperties_userName')]"
+					},
+					"ls_sql_covid_db_properties_typeProperties_server": {
+						"value": "[parameters('ls_sql_covid_db_properties_typeProperties_server')]"
+					},
+					"ls_sql_covid_db_properties_typeProperties_database": {
+						"value": "[parameters('ls_sql_covid_db_properties_typeProperties_database')]"
+					},
+					"ls_sql_covid_db_properties_typeProperties_userName": {
+						"value": "[parameters('ls_sql_covid_db_properties_typeProperties_userName')]"
 					}
 				}
 			},
