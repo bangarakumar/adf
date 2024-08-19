@@ -265,7 +265,7 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
+									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
@@ -276,7 +276,7 @@
 							"sink": {
 								"type": "DelimitedTextSink",
 								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
+									"type": "AzureBlobFSWriteSettings"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextWriteSettings",
@@ -296,14 +296,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "ds_population_by_age_tsv",
+								"referenceName": "ds_population_tsv_z",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "ds_population_tsv_z",
+								"referenceName": "ds_population_by_age_tsv",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -316,8 +316,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_population_by_age_tsv')]",
-				"[concat(variables('factoryId'), '/datasets/ds_population_tsv_z')]"
+				"[concat(variables('factoryId'), '/datasets/ds_population_tsv_z')]",
+				"[concat(variables('factoryId'), '/datasets/ds_population_by_age_tsv')]"
 			]
 		},
 		{
